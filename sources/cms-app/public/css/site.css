@@ -1,0 +1,16 @@
+.box {
+    padding: 5px;
+}
+.margin3 {
+    margin-right: 6px !important;
+}
+.width100 {
+    width: 100%;
+}
+.height200 {
+    height: 200px;
+}
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}

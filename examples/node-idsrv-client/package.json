@@ -1,0 +1,22 @@
+{
+  "name": "node-idsrv-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "passport": "^0.3.2",
+    "passport-identityserver3": "^0.5.2",
+    "passport-wsfed-saml2": "github:fortepayments/passport-wsfed-saml2",
+    "ssl-root-cas": "^1.1.10"
+  }
+}
