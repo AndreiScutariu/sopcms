@@ -22,9 +22,21 @@ namespace api.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage IsValidToken(string token)
+        public HttpResponseMessage IsValidToken(string id)
         {
-            return null;
+            return HandleRequest(() =>
+            {
+                var token = id;
+                var userDao = new UserDao();
+                userDao.IsValid(token);
+                return Request.CreateResponse(HttpStatusCode.OK, "Valid");
+            });
+        }
+
+        [HttpDelete]
+        public HttpResponseMessage Destroy(string id)
+        {
+            return HandleRequest(() => Request.CreateResponse(HttpStatusCode.OK));
         }
     }
 }

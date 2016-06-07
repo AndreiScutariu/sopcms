@@ -39,9 +39,9 @@ namespace api.Repository.Config
                             new AutoPersistenceModel().Conventions.Add(new ForeignKeyNameConvention(),
                                 new ForeignKeyConstraintNameConvention()));
 
-                    m.FluentMappings.Add<RoleMapping>();
-                    m.FluentMappings.Add<UserMapping>();
-                    m.FluentMappings.Add<TokenMapping>();
+                    m.FluentMappings.Add<RoleMap>();
+                    m.FluentMappings.Add<UserMap>();
+                    m.FluentMappings.Add<TokenMap>();
                 }
                 )
                 .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(true, true))

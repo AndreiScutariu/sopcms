@@ -108,6 +108,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Attributes\RunInTransactionAttribute.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Exceptions\ResourceAlreadyExistException.cs" />
+    <Compile Include="Exceptions\ResourceNotAllowedException.cs" />
     <Compile Include="Exceptions\ResourceNotFound.cs" />
     <Compile Include="Models\Api\CreateTokenModel.cs" />
     <Compile Include="Controllers\TokenController.cs" />
@@ -116,13 +118,13 @@
     <Compile Include="Models\Read\User.cs" />
     <Compile Include="Models\Read\Token.cs" />
     <Compile Include="Models\Write\BaseEntity.cs" />
-    <Compile Include="Models\Write\BaseEntityMapping.cs" />
+    <Compile Include="Models\Write\BaseEntityMap.cs" />
     <Compile Include="Models\Write\Role.cs" />
-    <Compile Include="Models\Write\RoleMapping.cs" />
+    <Compile Include="Models\Write\RoleMap.cs" />
     <Compile Include="Models\Write\User.cs" />
-    <Compile Include="Models\Write\UserMapping.cs" />
+    <Compile Include="Models\Write\UserMap.cs" />
     <Compile Include="Models\Write\Token.cs" />
-    <Compile Include="Models\Write\TokenMapping.cs" />
+    <Compile Include="Models\Write\TokenMap.cs" />
     <Compile Include="Repository\Config\NHibernateConfig.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">

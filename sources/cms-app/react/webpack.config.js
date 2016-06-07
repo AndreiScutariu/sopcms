@@ -18,12 +18,14 @@ module.exports = {
   ],
   module: {
     loaders: [
-      {
-        test: /\.js$/,
-        loaders: [ 'babel' ],
-        exclude: [/node_modules/, /public/],
-        include: __dirname
+       {
+        test: /.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015', 'react']
+        }
       }
     ]
   }
-}
+};

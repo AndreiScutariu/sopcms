@@ -44,22 +44,31 @@ namespace api.Repository.Dao
                     .SingleOrDefault();
 
             if (userEntity == null)
-                throw new ResourceNotFoundException();
-
-            var token = new Models.Write.Token
             {
-                User = userEntity,
-                ExpireTime = DateTime.Now.AddMinutes(60),
-                GeneratedToken = $"{new Guid()}{new Guid()}"
-            };
+                throw new ResourceNotFoundException();
+            }
+
+            userEntity.RejectExistingTokens();
+
+            var token = userEntity.GenerateNewToken();
 
             Session.Save(token);
 
             return new Token
             {
-                GeneratedToken = token.GeneratedToken,
-                ExpireIn = (token.ExpireTime - DateTime.Now).Minutes
+                Value = token.GeneratedToken
             };
+        }
+
+        public void IsValid(string token)
+        {
+            var userToken = Session.QueryOver<Models.Write.Token>()
+                .Where(t => t.GeneratedToken == token && !t.IsRejected && t.ExpireTime > DateTime.Now).SingleOrDefault();
+
+            if(userToken == null)
+            {
+                throw new ResourceNotAllowedException();
+            }
         }
 
         public Models.Read.User GetByEmail(string email)
@@ -148,4 +157,5 @@ namespace api.Repository.Dao
 
         #endregion
     }
+
 }

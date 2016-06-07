@@ -37,7 +37,7 @@ app.use(sass({
     dest: path.join(__dirname, 'public'),
     sourceMap: true
 }));
-app.use(logger('dev'));
+//app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
@@ -76,7 +76,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
 app.get('/', homeController.index);
-app.get('/templates', templateController.index);
+app.get('/templates', passportConfig.isAuthorized, templateController.index);
 app.get('/websites', websiteController.index);
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);

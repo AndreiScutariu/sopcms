@@ -23,6 +23,10 @@ namespace api.Controllers
             {
                 response = Request.CreateResponse(HttpStatusCode.NotFound, "");
             }
+            catch (ResourceNotAllowedException)
+            {
+                response = Request.CreateResponse(HttpStatusCode.Unauthorized, "");
+            }
             return response;
         }
     }

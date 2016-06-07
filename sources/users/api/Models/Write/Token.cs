@@ -9,5 +9,7 @@ namespace api.Models.Write
         public virtual DateTime ExpireTime { get; set; }
 
         public virtual User User { get; set; }
+
+        public virtual bool IsRejected { get; set; }
     }
 }

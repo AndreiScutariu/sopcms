@@ -80,7 +80,6 @@ exports.postSignup = function (req, res, next) {
         if (err) {
             return next(err);
         }
-        console.log("saved user: " + JSON.stringify(user));
         req.logIn(user, function (err) {
             if (err) {
                 return next(err);
@@ -119,7 +118,6 @@ exports.postUpdateProfile = function (req, res, next) {
         
         userService.update(req.user.id, user, function (err) {
             if (err) {
-                console.log("*** Error: " + JSON.stringify(err));
                 if (err.code === 11000) {
                     req.flash('errors', { msg: 'The email address you have entered is already associated with an account.' });
                     return res.redirect('/account');

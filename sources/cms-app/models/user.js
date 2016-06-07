@@ -3,6 +3,7 @@ var crypto = require('crypto');
 
 function User(user) {
     this.id = user.Id;
+    this.token = user.token;
     this.name = user.Name;
     this.email = user.Email;
     this.password = user.Password;

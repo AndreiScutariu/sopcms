@@ -2,8 +2,6 @@
 {
     public class Token
     {
-        public string GeneratedToken { get; set; }
-        
-        public int ExpireIn { get; set; }
+        public string Value { get; set; }
     }
 }
